@@ -22,6 +22,11 @@ app.get('/', function (req, res, next) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
+app.use(function(err, req, res, next) {
+    console.log(err.stack);
+    res.status(500).send(err);
+});
+
 app.listen(process.env.PORT || 8080, ()=>{
     console.log("server is up!");
 });
