@@ -1,10 +1,10 @@
 //template send
-
+require("dotenv").config();
 const Vonage = require('@vonage/server-sdk')
 
 const vonage = new Vonage({
-  apiKey: "b0b8d41d",
-  apiSecret: "5aRYUP19waVBuw3B"
+  apiKey: process.env.VONAGE_API_KEY,
+  apiSecret: process.env.VONAGE_API_SECRET
 })
 
 const from = 12504487460
