@@ -5,12 +5,12 @@ const {WebClient} = require('@slack/web-api');
 
 const router = express.Router();
 
-const web = new WebClient(process.env.SLACK_TOKEN);
+//const web = new WebClient(process.env.SLACK_TOKEN);
 const slackEvents = createEventAdapter(process.env.SLACK_EVENTS);
 
 router.use('/', slackEvents.expressMiddleware());
 
-slackEvents.on('app_mention', async (event) => {
+/*slackEvents.on('app_mention', async (event) => {
     try {
       console.log(event);
   
@@ -19,7 +19,7 @@ slackEvents.on('app_mention', async (event) => {
     }
   })
   
-  slackEvents.on('message', async (event) => {
+slackEvents.on('message', async (event) => {
     console.log(`Received a message event: user ${event.user} in channel ${event.channel} says ${event.text}`);
   
     const res = await web.chat.postMessage({ 
@@ -30,7 +30,7 @@ slackEvents.on('app_mention', async (event) => {
     // `res` contains information about the posted message
     console.log('Message sent: ', res.ts);
   
-  });
+});*/
   
 
 module.exports = router;

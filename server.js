@@ -3,10 +3,15 @@ const path = require('path');
 const api = require("./routes/api.js");
 const msalAuth = require("./routes/msalAuth.js");
 const session = require('express-session');
+const bodyParser = require('body-parser');
 
 const app = express();
 
-app.use(express.json());
+app.use("/api", api);
+
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+
 app.use(session({
     resave: false,
     saveUninitialized: false,
@@ -15,7 +20,6 @@ app.use(session({
 
 app.use(express.static(path.join(__dirname, 'build')));
 
-app.use("/api", api);
 app.use("/msal", msalAuth);
 
 app.get('/', function (req, res, next) {
