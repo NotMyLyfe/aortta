@@ -1,24 +1,16 @@
 {
   "name": "aortta",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/NotMyLyfe/Aortta.git"
-  },
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/NotMyLyfe/Aortta/issues"
-  },
-  "homepage": "https://github.com/NotMyLyfe/Aortta#readme",
   "dependencies": {
-    "@azure/msal-node": "^1.0.0-beta.3",
-    "express": "^4.17.1",
-    "pg": "^8.5.1"
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.1"
   }
 }
