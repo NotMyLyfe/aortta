@@ -1,25 +1,31 @@
 import logo from './logo.svg';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import './App.css';
+import Nav from './Nav'
+import Landing from './Landing'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
+import Login from "./Login";
+import Messaging from "./Messaging";
+import About from "./About";
+
+
+function App(props) {
+    const loggedIn = props.loggedIn;
+    window.sessionStorage.logStatus = loggedIn;
+    return (
+        <div className="App">
+            <Nav isLoggedIn={loggedIn}/>
+        </div>
+    );
 }
+
+
 
 export default App;

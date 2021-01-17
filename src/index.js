@@ -2,13 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Login from './Login'
 import reportWebVitals from './reportWebVitals';
 
+window.sessionStorage.logStatus = true;
+
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+
+        <App loggedIn={window.sessionStorage.logStatus}/>
+
+    </React.StrictMode>,
+    document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
