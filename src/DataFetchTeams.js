@@ -10,6 +10,7 @@ var getTeamsID = "/api/msal/getTeams?homeAccountId=" + userID,
 // body : { content : "" }}
 
 //this is half complete tbh i dont expect this part to even work
+
 function DataFetchTeams(){
 
     var getTeams = fetch(getTeamsID)
