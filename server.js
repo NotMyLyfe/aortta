@@ -3,7 +3,7 @@ const path = require('path');
 const api = require("./routes/api.js");
 const msalAuth = require("./routes/msalAuth.js");
 const session = require('express-session');
-const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const app = express();
 
@@ -16,10 +16,13 @@ app.use(session({
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
+app.use(cors());
+
 app.use("/api", api);
 
 
 app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static("public"));
 
 app.use("/msal", msalAuth);
 
@@ -32,6 +35,6 @@ app.use(function(err, req, res, next) {
     res.status(500).send(err);
 });
 
-app.listen(3000, ()=>{
+app.listen(process.env.PORT || 8080, ()=>{
     console.log("server is up!");
 });
