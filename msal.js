@@ -1,37 +1,22 @@
 const msal = require('@azure/msal-node');
 const fs = require('fs');
-
-const cachePath = "./data/example.cache.json";
+const {retrieveCache, writeToCache} = require("./cacheDb.js");
 
 const beforeCacheAccess = async(cacheContext) => {
     return new Promise(async(resolve, reject) => {
-        if (fs.existsSync(cachePath)) {
-            fs.readFile(cachePath, "utf-8", (err, data) => {
-                if (err) {
-                    reject();
-                } else {
-                    console.log(data);
-                    cacheContext.tokenCache.deserialize(data);
-                    resolve();
-                }
-            });
-        } else {
-            fs.writeFile(cachePath, cacheContext.tokenCache.serialize(), (err) => {
-                if (err) {
-                    reject();
-                }
-            });
-        }
+        retrieveCache()
+            .then(response => {
+                cacheContext.tokenCache.deserialize(JSON.stringify(response));
+                resolve();
+            })
+            .catch(err => reject(err));
     });
 };
 
 const afterCacheAccess = async(cacheContext) => {
+    //console.log(cacheContext.tokenCache.serialize());
     if(cacheContext.cacheHasChanged) {
-        await fs.writeFile(cachePath, cacheContext.tokenCache.serialize(), (err) => {
-            if (err) {
-                console.log(err);
-            }
-        });
+        await writeToCache(JSON.parse(cacheContext.tokenCache.serialize())).then(response => {}).catch(err => console.log(err));
     }
 }
 
@@ -49,7 +34,7 @@ const config = {
     system: {
         loggerOptions: {
             loggerCallback(loglevel, message, containsPii) {
-                console.log(message);
+                //console.log(message);
             },
             piiLoggingEnabled: false,
             logLevel: msal.LogLevel.Verbose,
