@@ -22,6 +22,14 @@ input::-webkit-inner-spin-button {
     border-radius: 10px;
 }
 
+.login-card-header{
+    background: linear-gradient(60deg,#ab47bc,#7b1fa2);
+    border-radius: 50px;
+    color: white !important;
+    margin: 10px;
+}
+
+
 #verify-code-form {
     display: none;
 }
