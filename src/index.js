@@ -2,11 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Login from './Login'
+//import Login from './Login'
 import reportWebVitals from './reportWebVitals';
 
 window.sessionStorage.logStatus = false;
-
 
 ReactDOM.render(
     <React.StrictMode>

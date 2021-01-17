@@ -15,16 +15,16 @@ function Messaging(props) {
     return <h1>yolo</h1>
 }
 
-
-function showMessage(props){
-    var user = props.username,
-        content = props.message;
-    return (
-        <div>
-            <h5>{user}</h5>
-            <p>{content}</p>
-        </div>
-    );
-}
+//
+// function showMessage(props){
+//     var user = props.username,
+//         content = props.message;
+//     return (
+//         <div>
+//             <h5>{user}</h5>
+//             <p>{content}</p>
+//         </div>
+//     );
+// }
 
 export default Messaging;

@@ -1,7 +1,7 @@
 //import logo from './logo.svg';
 
 import React from "react";
-import App from './App'
+//import App from './App'
 import Login from './Login'
 import Messaging from './Messaging'
 import About from './About'
@@ -69,7 +69,7 @@ function Greeting(props) {
     return <GuestGreeting />;
 }
 
-function UserGreeting(props){
+function UserGreeting(){
     return (
         <Link to="/messaging" className="nav-item">
             <button className="btn btn-primary btn-round">
@@ -79,7 +79,7 @@ function UserGreeting(props){
     );
 }
 
-function GuestGreeting(props){
+function GuestGreeting(){
     return (
         <Link to="/login" className="nav-item">
             <button className="btn btn-primary btn-round">

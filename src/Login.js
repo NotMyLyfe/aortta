@@ -1,16 +1,13 @@
 import React from 'react';
 import './login.css';
-import * as response from "body-parser";
-const jwt = require('jsonwebtoken');
+//import * as response from "body-parser";
+//const jwt = require('jsonwebtoken');
 
 //https://linguinecode.com/post/how-to-get-form-data-on-submit-in-reactjs
 function Login(props) {
-
-
-    var loggedIn = props.isLoggedIn,
-        phoneNum;
-
-    const handleSubmit = (e) => {
+    var phoneNum;
+    console.log(props);
+    const handleSubmit = () => {
         document.getElementById('sign-in-btn').setAttribute("disabled", "disabled")
         phoneNum = document.getElementById('inputPhoneNumber').value.trim();
         e.preventDefault()
@@ -28,7 +25,7 @@ function Login(props) {
 
     };
 
-    const handleVerify = (e) => {
+    const handleVerify = () => {
 
         var pinVal = document.getElementById('inputPIN').value.trim(),
             first = document.getElementById('inputFirstName').value.trim(),
@@ -55,10 +52,10 @@ function Login(props) {
         <div className="login">
             <div className="login-header">
                 <div className="card-header card-header-primary text-center login-card-header">
-                    <a target="_blank" rel="noopener" href="https://slack.com/oauth/authorize?client_id=1628208345143.1667973409392&scope=bot,channels:history,channels:read,chat:write:bot,chat:write:user,files:read,files:write:user,im:history,im:read,im:write,incoming-webhook,links:read,mpim:history,mpim:read,usergroups:read,usergroups:write,users.profile:read,users.profile:write,users:read,users:read.email,users:write" className="btn btn-just-icon btn-link btn-white">
+                    <a target="_blank" rel="noreferrer" href="https://slack.com/oauth/authorize?client_id=1628208345143.1667973409392&scope=bot,channels:history,channels:read,chat:write:bot,chat:write:user,files:read,files:write:user,im:history,im:read,im:write,incoming-webhook,links:read,mpim:history,mpim:read,usergroups:read,usergroups:write,users.profile:read,users.profile:write,users:read,users:read.email,users:write" className="btn btn-just-icon btn-link btn-white">
                         <i className="fab fa-slack"/>
                     </a>
-                    <a target="_blank" rel="noopener" href="https://teams.microsoft.com/go#" className="btn btn-just-icon btn-link btn-white">
+                    <a target="_blank" rel="noreferrer" href="https://teams.microsoft.com/go#" className="btn btn-just-icon btn-link btn-white">
                         <i className="fas fa-user-friends"/>
                         <div className="ripple-container"/>
                     </a>
