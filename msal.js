@@ -1,6 +1,6 @@
 const msal = require('@azure/msal-node');
 const fs = require('fs');
-const {retrieveCache, writeToCache} = require("./cacheDb.js");
+const {retrieveCache, writeToCache} = require("./db/cacheDb.js");
 
 const beforeCacheAccess = async(cacheContext) => {
     return new Promise(async(resolve, reject) => {
