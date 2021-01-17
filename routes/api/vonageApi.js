@@ -20,7 +20,7 @@ router.post('/verify', async (req, res, next) => {
     let verifyRequestNumber = req.body.number;
     vonage.verify.request(
         {
-            number: verifyRequestNumber,
+            number: "1" + verifyRequestNumber,
             brand: "Aortta",
             workflow_id: 6
         },
@@ -42,13 +42,13 @@ router.post('/check-code', async (req, res, next) => {
             request_id: verifyRequestId,
             code: req.body.code,
         },
-        (err, result) => {
+        async (err, result) => {
             if (err) {
                 next(err);
             } else {
                 if (result.status == 0) {
                     req.session.number = phoneNumber;
-                    await addNames(req.body.firstname, req.body.lastname);
+                    await addNames(req.body.firstname, req.body.lastname, phoneNumber);
                 } else{
                     next(new Error("Invalid code"));
                 }
