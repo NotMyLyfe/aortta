@@ -5,7 +5,7 @@ import App from './App';
 import Login from './Login'
 import reportWebVitals from './reportWebVitals';
 
-window.sessionStorage.logStatus = true;
+window.sessionStorage.logStatus = false;
 
 
 ReactDOM.render(
