@@ -31,12 +31,12 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start-express": "node server.js",
+    "start": "node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "rtm-session": "node slack/app.js",
-    "start": "concurrently \"npm rum start-express\" \"npm run rtm-session\""
+    "start-notworking": "concurrently \"npm rum start-express\" \"npm run rtm-session\""
   },
   "eslintConfig": {
     "extends": [
