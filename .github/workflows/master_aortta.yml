@@ -31,5 +31,5 @@ jobs:
       with:
         app-name: 'aortta'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_c7beba16d1a64c778ed0b69d2ca93a6b }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_03574660f93f4038bd0457946cbe8b8d }}
         package: .
