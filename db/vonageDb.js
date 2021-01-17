@@ -46,4 +46,20 @@ async function responseIdReturn(phonenumber){
     }
 }
 
-module.exports = {responseIdInsert, responseIdReturn};
+async function addNames(firstName, lastName, phoneNumber){
+    let client = await pool.connect();
+    try {
+        await client.query('BEGIN');
+        await client.query(`UPDATE users SET firstname = '${firstName}', lastname = '${lastName}' WHERE phonenumber = '${phoneNumber}'`);
+        await client.query(`COMMIT`);
+        client.release();
+        return;
+    }
+    catch(err){
+        await client.query('ROLLBACK');
+        client.release();
+        return Promise.reject(err);
+    }
+}
+
+module.exports = {responseIdInsert, responseIdReturn, addNames};

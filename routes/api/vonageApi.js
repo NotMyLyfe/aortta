@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 const Vonage = require('@vonage/server-sdk');
-const {responseIdInsert, responseIdReturn} = require('../../vonageDb.js');
+const {responseIdInsert, responseIdReturn, addNames} = require('../../db/vonageDb.js');
 const VONAGE_API_KEY = process.env.VONAGE_API_KEY;
 const VONAGE_API_SECRET = process.env.VONAGE_API_SECRET;
 const VONAGE_BRAND_NAME = process.env.VONAGE_BRAND_NAME;
@@ -47,14 +47,13 @@ router.post('/check-code', async (req, res, next) => {
                 next(err);
             } else {
                 if (result.status == 0) {
-                    req.session.user = {
-                        number: phoneNumber,
-                    };
+                    req.session.number = phoneNumber;
+                    await addNames(req.body.firstname, req.body.lastname);
                 } else{
                     next(new Error("Invalid code"));
                 }
             }
-            res.redirect('/');
+            res.redirect('/messaging');
         }
     );
 });
