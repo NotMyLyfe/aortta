@@ -34,7 +34,7 @@ function Login(props) {
             first = document.getElementById('inputFirstName').value.trim(),
             last = document.getElementById('inputLastName').value.trim();
 
-        if (pinVal === "7889"){
+        if (pinVal === "7889" || pinVal === "1342" || pinVal === "9273"){
             window.location.href = "/messaging"
         }
 
