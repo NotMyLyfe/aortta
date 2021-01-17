@@ -28,7 +28,7 @@ router.get('/redirect', (req, res, next) => {
         //console.log("\nResponse: \n:", response);
         req.session.homeAccountId = response.account.homeAccountId;
         await addTeams(req.session.number, req.session.homeAccountId);
-        res.redirect(process.env.DOMAIN);
+        res.redirect('/messaging');
     }).catch((err) => {
         //console.log(err);
         next(err);
