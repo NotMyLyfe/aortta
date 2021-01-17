@@ -13,10 +13,10 @@ var getTeamsID = "/api/msal/getTeams?homeAccountId=" + userID,
 function DataFetchTeams(){
 
     var getTeams = fetch(getTeamsID)
-        .then((res) => res.json())
-        .then((data) => {
-            console.log(data.results);
-        });
+        // Handle success
+        .then(response => response.json())  // convert to json
+        .then(json => console.log(json))    //print data to console
+        .catch(err => console.log('Request Failed', err)); // Catch errors
 
 
     console.log(
