@@ -19,8 +19,6 @@ let config = {
 
 var pool = new pg.Pool(config);
 
-
-
 async function addUser(fName,lName,pNumber) {
     //success -> added
     //duplicate -> phone number in database
