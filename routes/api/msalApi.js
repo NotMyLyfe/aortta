@@ -8,7 +8,7 @@ async function accessToken(req, res, next, accountId = null){
 
     if(accountId == null){
         if(req.session.homeAccountId == undefined){
-            res.redirect("http://localhost:8080/msal");
+            res.redirect(`${process.env.DOMAIN}/msal`);
         }
         else accountId = req.session.homeAccountId;
     }
