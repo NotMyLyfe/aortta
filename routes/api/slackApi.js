@@ -10,17 +10,17 @@ const router = express.Router();
 router.post('/userToken', async (req, res, next) => {
 
   var accessToken = req.body[0].access_token;
-  //console.log(accessToken);
+
+  console.log(accessToken);
+  console.log(getUserInfo(accessToken));
 
 
-  web.chat.postMessage("general", "Hello");
-
-  if(accessToken != undefined) {
+  /*if(accessToken != undefined) {
       await sendMessageT(req.body[0].access_token, "general", "I have allowed Aortta to control me")
         .then(response => {console.log(accessToken)})
         .catch(err => {next(err);});
   
-  }
+  }*/
 
   res.sendStatus(200);
 
@@ -48,6 +48,28 @@ router.post('/sendMessage', async (req, res, next) => {
 
 })
 
+
+
+async function getUserInfo(user_token) {
+
+  try {
+    
+    const result = await web.users.profile.get({
+      token: user_token
+    });
+  
+    const nextResult = await web.users.lookupByEmail({
+      email: result.profile.email
+    });
+    
+    console.log(nextResult);
+
+  }
+  catch (error) {
+    console.error(error);
+  }
+
+}
 
 async function sendMessageT(token, channel, message) {
 
