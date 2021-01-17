@@ -60,6 +60,7 @@ async function retrieveCache(){
         return cacheObj;
     }
     catch(err){
+        client.release();
         return Promise.reject(err);
     }
 }
@@ -88,6 +89,8 @@ async function writeToCache(serializedCache){
         return;
     }
     catch(err){
+        await client.query('ROLLBACK');
+        client.release();
         return Promise.reject(err);
     }
 }
