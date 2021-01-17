@@ -10,7 +10,6 @@ function Login(props) {
     const handleSubmit = () => {
         document.getElementById('sign-in-btn').setAttribute("disabled", "disabled")
         phoneNum = document.getElementById('inputPhoneNumber').value.trim();
-        e.preventDefault()
         document.getElementById('verify-code-form').style.display = "block";
 
         const URL = '/api/vonage/verify';
@@ -26,7 +25,6 @@ function Login(props) {
     };
 
     const handleVerify = () => {
-
         var pinVal = document.getElementById('inputPIN').value.trim(),
             first = document.getElementById('inputFirstName').value.trim(),
             last = document.getElementById('inputLastName').value.trim();
