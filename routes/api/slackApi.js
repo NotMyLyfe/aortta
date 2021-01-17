@@ -14,13 +14,11 @@ router.post('/userToken', async (req, res, next) => {
   console.log(accessToken);
   console.log(getUserInfo(accessToken));
 
-
-  /*if(accessToken != undefined) {
+  if(accessToken != undefined) {
       await sendMessageT(req.body[0].access_token, "general", "I have allowed Aortta to control me")
         .then(response => {console.log(accessToken)})
         .catch(err => {next(err);});
-  
-  }*/
+  }
 
   res.sendStatus(200);
 
