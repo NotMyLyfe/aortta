@@ -7,16 +7,17 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-app.use("/api", api);
-
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
-
 app.use(session({
     resave: false,
     saveUninitialized: false,
     secret: 'secret'
 }));
+
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+
+app.use("/api", api);
+
 
 app.use(express.static(path.join(__dirname, 'build')));
 
