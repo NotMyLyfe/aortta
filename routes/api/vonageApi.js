@@ -17,7 +17,7 @@ const vonage = new Vonage({
 
 router.post('/verify', async (req, res, next) => {
     // Start the verification process
-    let verifyRequestNumber = req.body.number;
+    let verifyRequestNumber = "1" + req.body.number;
     vonage.verify.request(
         {
             number: verifyRequestNumber,
