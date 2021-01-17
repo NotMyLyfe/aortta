@@ -54,7 +54,6 @@ function Nav(props) {
                 <Route path="/messaging" exact component={ () => <Messaging isLoggedIn={loggedIn}/>} />
                 <Route path="/about" exact component={ () => <About />} />
                 <Route path="/" exact component={ () => <Landing /> } />
-                <Route path="*" exact component={ () => <Landing /> } />
             </Switch>
 
         </Router>

@@ -9,6 +9,7 @@ const initialFormData = Object.freeze({
 
 //https://linguinecode.com/post/how-to-get-form-data-on-submit-in-reactjs
 function Login(props) {
+
     var loggedIn = props.isLoggedIn;
     const [formData, updateFormData] = React.useState(initialFormData);
 
