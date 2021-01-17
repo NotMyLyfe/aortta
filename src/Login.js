@@ -25,7 +25,6 @@ function Login(props) {
     };
 
     const handleVerify = () => {
-
         var pinVal = document.getElementById('inputPIN').value.trim(),
             first = document.getElementById('inputFirstName').value.trim(),
             last = document.getElementById('inputLastName').value.trim();
