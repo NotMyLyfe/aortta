@@ -14,7 +14,10 @@ import {
 } from "react-router-dom";
 
 function Nav(props) {
-    const loggedIn = props.isLoggedIn;
+    var loggedIn = props.isLoggedIn;
+    loggedIn = JSON.parse(window.sessionStorage.logStatus) === true;
+    console.log(window.sessionStorage.logStatus)
+    console.log(loggedIn);
     return (
         <Router>
             <nav className="navbar navbar-expand-lg navbar-transparent">
@@ -31,7 +34,7 @@ function Nav(props) {
                     </div>
                     <div className="collapse navbar-collapse">
                         <ul className="navbar-nav ml-auto">
-                            <li className="active nav-item">
+                            <li className="nav-item">
                                 <Link to="/about" className="nav-link">
                                     <i className="material-icons">explore</i>
                                     About

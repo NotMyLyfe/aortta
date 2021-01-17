@@ -5,10 +5,13 @@ import App from './App';
 import Login from './Login'
 import reportWebVitals from './reportWebVitals';
 
+window.sessionStorage.logStatus = true;
+
+
 ReactDOM.render(
     <React.StrictMode>
 
-        <App loggedIn={false}/>
+        <App loggedIn={window.sessionStorage.logStatus}/>
 
     </React.StrictMode>,
     document.getElementById('root')

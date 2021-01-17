@@ -18,6 +18,7 @@ import About from "./About";
 
 function App(props) {
     const loggedIn = props.loggedIn;
+    window.sessionStorage.logStatus = loggedIn;
     return (
         <div className="App">
             <Nav isLoggedIn={loggedIn}/>

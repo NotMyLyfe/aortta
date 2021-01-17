@@ -6,8 +6,7 @@
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 2vmin);
-    color: #ffffff;
-
+    color: #222222;
 }
 
 input::-webkit-outer-spin-button,
@@ -18,8 +17,8 @@ input::-webkit-inner-spin-button {
 
 
 .login-header{
+    background-color: #ffffff;
     padding: 40px;
-    border: 2px solid #c3c3c3;
     border-radius: 10px;
 }
 
@@ -29,4 +28,8 @@ input::-webkit-inner-spin-button {
 
 #inputPIN {
     text-align: center;
+}
+
+#try-again-msg {
+    display: none;
 }
