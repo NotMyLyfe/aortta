@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 const msal = require("../msal.js")
 
-const scope = ["user.read", "Team.ReadBasic.All"];
+const scope = ["user.read", "Team.ReadBasic.All", "Group.Read.All", "ChannelMessage.Delete", "ChannelMessage.Edit", "ChannelMessage.Read.All", "ChannelMessage.Send", "TeamsActivity.Read"];
 const redirectUri = "http://localhost:8080/msal/redirect";
 
 router.get('/', (req, res, next) => {
