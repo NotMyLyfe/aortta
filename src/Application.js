@@ -3,13 +3,7 @@ import React from 'react';
 import './application.css';
 
 
-function Application(props){
-    var appName = props.appName,
-        appIcon = "";
-
-    if( appName === "teams"){
-        appIcon = "fab fa-group-friends"
-    }
+function Application(){
 
     return (
         <div id="wrapper-app" className="col-md-4 col-md-12">
@@ -17,14 +11,14 @@ function Application(props){
                 <div className="col-md-2">
                     <ul className="nav nav-pills nav-pills-icons flex-column" role="tablist">
                         <li className="nav-item">
-                            <a className="nav-link" href="#teams" role="tab" data-toggle="tab"
+                            <a className="nav-link" href="#" role="tab" data-toggle="tab"
                                aria-selected="false">
                                 <i className="material-icons">dashboard</i>
                                 microsoft teams
                             </a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link active show" href="#slack" role="tab" data-toggle="tab"
+                            <a className="nav-link active show" href="#" role="tab" data-toggle="tab"
                                aria-selected="true">
                                 <i className="fas fa-user-friends"/>
                                 slack
