@@ -95,16 +95,4 @@ async function writeToCache(serializedCache){
     }
 }
 
-/*(async() => {
-    let client = await pool.connect();
-    await client.query('BEGIN');
-    await client.query('ALTER TABLE account_msal_cache ADD CONSTRAINT keyName UNIQUE (key)');
-    await client.query('ALTER TABLE id_token_msal_cache ADD CONSTRAINT keyName UNIQUE (key)');
-    await client.query('ALTER TABLE access_token_msal_cache ADD CONSTRAINT keyName UNIQUE (key)');
-    await client.query('ALTER TABLE refresh_token_msal_cache ADD CONSTRAINT keyName UNIQUE (key)');
-    await client.query('ALTER TABLE app_metadata_cache ADD CONSTRAINT keyName UNIQUE (key)');
-    await client.query('COMMIT');
-    client.release();
-})();
-*/
 module.exports = {retrieveCache, writeToCache};

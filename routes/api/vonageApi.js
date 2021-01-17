@@ -15,22 +15,6 @@ const vonage = new Vonage({
     {debug: true,}
 );
 
-function handleInboundSms(req, res){
-    const params = Object.assign(req.query, req.body);
-    console.log(params);
-    res.status(204).send();
-}
-
-router.route('/webhooks/inbound-sms').get(handleInboundSms).post(handleInboundSms);
-
-router.use(function(req, res, next) {
-    if(req.url[0] !== '/' || req.originalUrl[0] !== '/') {
-        res.status(404).send('');
-    } else {
-        next();
-    }
-});
-
 router.post('/verify', async (req, res, next) => {
     // Start the verification process
     let verifyRequestNumber = req.body.number;
