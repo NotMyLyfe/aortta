@@ -13,8 +13,8 @@ app.use(session({
     secret: 'secret'
 }));
 
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
 
 app.use("/api", api);
 
@@ -32,6 +32,6 @@ app.use(function(err, req, res, next) {
     res.status(500).send(err);
 });
 
-app.listen(process.env.PORT || 8080, ()=>{
+app.listen(3000, ()=>{
     console.log("server is up!");
 });
