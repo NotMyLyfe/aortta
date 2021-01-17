@@ -19,58 +19,6 @@ let config = {
 
 var pool = new pg.Pool(config);
 
-/*pool.connect(function (err, client, done) {
-    // Your code goes here.
-    // For more information, see the 'node-postgres' docs:
-    // https://node-postgres.com
-    if (err) throw(err);
-    console.log("Connected!\n");
-    let fName = prompt("What is your first name?");
-    let lName = prompt("What is your last name?");
-    let pNumber = prompt("What is your phone number?");*/
-    //addUser(fName,lName,pNumber);
-    /*let qu = "INSERT INTO users (firstName,lastName,phoneNumber) VALUES ( \'" + `${fName}` + "\', \'" + `${lName}` + "\', " + `${pNumber}` + ")";
-    console.log(qu);
-    pool.query(qu,function(err,result) {
-        if (err) throw(err);
-        else console.log("User added!");
-    })*/
-    /*removeUser(fName,lName,pNumber);
-})*/
-
-/*function addUser(fName,lName,pNumber) {
-    //adds user with specified params
-    let qu = "INSERT INTO users (firstName,lastName,phoneNumber) VALUES (\'" + `${fName}` + "\', \'" + `${lName}` + "\', " + `${pNumber}` + ")";
-    console.log(qu);
-    pool.query(qu,function(err,result) {
-        if (err) throw(err);
-        else console.log("User Added!");
-        console.log(result);
-    })
-}*/
-
-/*function removeUser(fName,lName,pNumber) {*/
-    //let qu = "DELETE FROM users WHERE firstName = \'" + `${fName}` + "\' AND lastName = \'" + `${lName}` + "\' AND phoneNumber = " + `${pNumber}`;
-    /*let qu = `DELETE FROM users WHERE firstName = \'${fName}\' AND lastName = \'${lName}\' AND phoneNumber = ${pNumber}`;
-    console.log(qu);
-    
-    pool.query(qu, function(err,result) {
-        var delRes;
-        if (err) delRes = "error";
-        if (result.rowCount == 0) {
-            delRes = "no user exists";
-        }
-        else delRes = "removed";
-        let q2 = `INSERT INTO removals (firstName,lastName,phoneNumber,queryResult) VALUES (\'${fName}\',\'${lName}\',${pNumber},\'${delRes}\')`;
-        pool.query(q2,function(err2,result2) {
-            if (err2) throw(err2);
-            else console.log("Check removals table for status AND DELETE FROM THERE");
-        })
-    })*/
-    
-
-//}
-
 async function addUser(fName,lName,pNumber) {
     //success -> added
     //duplicate -> phone number in database

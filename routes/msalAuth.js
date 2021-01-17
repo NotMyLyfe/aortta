@@ -23,11 +23,11 @@ router.get('/redirect', (req, res, next) => {
     };
 
     msal.cca.acquireTokenByCode(tokenRequest).then((response) => {
-        console.log("\nResponse: \n:", response);
+        //console.log("\nResponse: \n:", response);
         req.session.homeAccountId = response.account.homeAccountId;
         res.redirect(process.env.DOMAIN);
     }).catch((err) => {
-        console.log(err);
+        //console.log(err);
         next(err);
     })
 });
