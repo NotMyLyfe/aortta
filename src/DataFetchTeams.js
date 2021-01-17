@@ -9,7 +9,7 @@ var getTeamsID = "/api/msal/getTeams?homeAccountId=" + userID,
     postMessagesID = "/api/msal/postMessages?homeAccountId=" + + userID + "&teamId=" + getTeamsID + "&channelId=" + getChannelID; // requires body w json - post request
 // body : { content : "" }}
 
-
+//this is half complete tbh i dont expect this part to even work
 function DataFetchTeams(){
 
     var getTeams = fetch(getTeamsID)
@@ -31,6 +31,7 @@ class TeamsList extends React.Component {
         this.state = {
             teams: [],
         };
+
 
 
     }
